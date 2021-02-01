@@ -1,5 +1,6 @@
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
 import db from '../db.json';
+
 const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;

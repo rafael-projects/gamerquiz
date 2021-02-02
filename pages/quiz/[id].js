@@ -1,10 +1,11 @@
 /* eslint-disable react/jsx-filename-extension */
+
 import React from 'react';
 
-export default function AgoraVai() {
+export default function QuizDaGaleraPage() {
   return (
     <div>
-      Página do Quiz.
+      Desafio da próxima aula junto com as animações
     </div>
   );
 }

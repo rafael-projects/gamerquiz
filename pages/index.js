@@ -12,6 +12,8 @@ import Footer from '../src/components/Footer';
 
 import GitHubCorner from '../src/components/GitHubCorner';
 import QuizBackground from '../src/components/QuizBackground';
+import Input from '../src/components/Input';
+import Button from '../src/components/Button';
 
 /* const BackgroundImage = styled.div`
   background-image: url(${db.bg});
@@ -35,7 +37,7 @@ export const QuizContainer = styled.div`
 export default function Home() {
   const router = useRouter();
   const [name, setName] = React.useState('');
-  console.log('State on');
+
   return (
     <QuizBackground backgroundImage={db.bg}>
       <Head>
@@ -51,25 +53,20 @@ export default function Home() {
             </h1>
           </Widget.Header>
           <Widget.Content>
-            <form onSubmit={function (infosDoEvento) {
+            <form onSubmit={(infosDoEvento) => {
               infosDoEvento.preventDefault();
               router.push(`/quiz?name=${name}`);
-              console.log('Fazendo uma submissão por meio do react');
             }}
             >
-              <input
-                onChange={function (infosDoEvento) {
-                  console.log(infosDoEvento.target.value);
-                  // State
-                  // name = infosDoEvento.target.value;
-                  setName(infosDoEvento.target.value);
-                }}
-                placeholder="Diga seu nome: "
+              <Input
+                name="Nome do usuario"
+                onChange={(infosDoEvento) => { setName(infosDoEvento.target.value); }}
+                placeholder="Seu nome aqui"
+                value={name}
               />
-              <button type="submit" disable={name.lenght === 0}>
-                Jogar:
-                {name}
-              </button>
+              <Button type="submit" disable={name.lenght === 0}>
+                {`Jogar ${name}`}
+              </Button>
             </form>
           </Widget.Content>
         </Widget>
